@@ -36,7 +36,9 @@ set(configurelist
 	files/launch/hostname.conf
 	files/launch/mountall.conf
 	files/launch/setup-environment.conf
-	files/launch/udev.conf)
+	files/launch/udev.conf
+	files/launch/populate-volatile.conf
+	files/launch/start_update.conf)
 
 foreach (confitem ${configurelist})
 	webos_build_configured_file(${confitem} SYSCONFDIR  "init")

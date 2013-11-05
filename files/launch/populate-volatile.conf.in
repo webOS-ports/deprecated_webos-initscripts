@@ -18,21 +18,8 @@
 
 # -*- mode: shell-script; -*-
 
-start on ls-hubd_public-ready
-
-emits minimal-boot-done
-emits init-boot-done
+start on stopped mountall
 
 script
-   # If anybody needs to sneak in before we start the race among
-   # components that 'start on stopped finish', this is the place.
-   # run-parts won't return until all of the scripts in
-   # finish-poststart.d return and so the stopped event will be
-   # delayed by that long.
-    if [ -d @WEBOS_INSTALL_UPSTARTCONFDIR@/finish-poststart.d ]; then
-        run-parts @WEBOS_INSTALL_UPSTARTCONFDIR@/finish-poststart.d
-    fi
-
-    initctl emit --no-wait minimal-boot-done
-    initctl emit --no-wait init-boot-done
+   @WEBOS_INSTALL_SYSCONFDIR@/init.d/populate-volatile.sh start
 end script

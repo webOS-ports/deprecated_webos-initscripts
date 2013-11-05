@@ -1,8 +1,5 @@
 description "device node and kernel event manager"
 
-sart on stopped mountall
+start on stopped mountall
 
-expect fork
-respawn
-
-exec /lib/udev/udevd --daemon
+exec /etc/init.d/udev start
