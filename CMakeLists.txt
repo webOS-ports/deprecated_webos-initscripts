@@ -39,9 +39,9 @@ set(configurelist
 	files/launch/udev.conf)
 
 foreach (confitem ${configurelist})
-	webos_build_configured_file(${confitem} UPSTARTCONFDIR "")
+	webos_build_configured_file(${confitem} SYSCONFDIR  "init")
 endforeach()
 
 webos_build_configured_file(scripts/public/reboot_ls-hubd_if.sh SBINDIR "")
 
-install(DIRECTORY DESTINATION ${WEBOS_INSTALL_UPSTARTCONFDIR}/finish-poststart.d)
+install(DIRECTORY DESTINATION ${WEBOS_INSTALL_SYSCONFDIR}/init/finish-poststart.d)
