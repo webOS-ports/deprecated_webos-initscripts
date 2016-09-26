@@ -1,6 +1,11 @@
 webos-initscripts
 =================
 
+NO LONGER USED
+-------
+
+Since we're using systemd instead, we're no longer using these.
+
 Summary
 -------
 Event-driven startup scripts for system services
